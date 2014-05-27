@@ -1,0 +1,16 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                template="/fntemplate.xhtml">
+    <ui:define name="corpo">
+        <div class="container" style="margin-top: 10px;">
+            <h3>#{msgs.lbDescription}</h3>
+            <p>#{msgs.textDescription} <a href="http://computacao.jatai.ufg.br/" target="_blank">#{msgs.textCourse}</a> - <a href="http://www.jatai.ufg.br" target="_blank">#{msgs.textUniversity}</a>.</p>
+            <h3>#{msgs.lbUsedTechnology}</h3>
+            <p>#{msgs.textUsedTechnology}</p>
+            <h3>#{msgs.lbCredits}</h3>
+            <p>#{msgs.textCredits} (<i><a href="http://paulojunior.jatai.ufg.br" target="_blank">#{msgs.lbHomepage}</a></i> | <i><a href="http://lattes.cnpq.br/4567261968633725" target="_blank">#{msgs.lbLattes}</a></i>)</p>
+        </div>
+    </ui:define>
+</ui:composition>

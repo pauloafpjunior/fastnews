@@ -1,0 +1,20 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+                template="/fntemplate.xhtml">
+    <ui:define name="corpo">
+        <div class="container well" style="margin-top: 10px;">
+            <h:form class="form-signin" p:role="form">
+                <h:messages errorStyle="color: red"/>
+                <h4>#{msgs.lbNewsDescription}</h4>
+                <h:inputTextarea style="form-control" p:required="true" p:autofocus="true" value="#{newsBean.anotherNews.title}" requiredMessage="#{msgs.emptyNewsDescription}"/>
+                <br/>
+                <h4>#{msgs.lbNewsLink}</h4>
+                <h:inputText style="form-control" p:required="true" value="#{newsBean.anotherNews.link}" requiredMessage="#{msgs.emptyNewsLink}"/>
+                <br/>
+                <h:commandLink class="btn btn-lg btn-primary btn-block" action="#{newsBean.sendNews}">#{msgs.btnSendNews}</h:commandLink>
+            </h:form>
+        </div>
+    </ui:define>
+</ui:composition>

@@ -1,0 +1,31 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"                
+                xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+                template="/fntemplate.xhtml">
+    <ui:define name="corpo">
+        <h:form class="form-signin" p:role="form">
+            <div class="container well" style="margin-top: 10px; text-align: center">
+                <h2>#{msgs.textHomePage}</h2>
+                <p>#{msgs.textSmartphone}</p>
+                <img style="max-width: 150px;" src="./assets/img/logofn.png"/><br/>
+                <h:link class="btn btn-lg btn-primary btn-block" value="#{msgs.btnLogon}" outcome="login"/>
+                <h:commandLink class="btn btn-lg btn-primary btn-block" value="#{msgs.btnSignupHome}" action="addUser"/>
+            </div>
+            <div class="container" style="margin-top: 10px;">
+                <table class="table">
+                    <thead>
+                        <tr><th style="text-align: center;">#{msgs.textWhatson}</th></tr>
+                    </thead>
+                    <tbody>
+                        <ui:repeat value="#{newsBean.topNews}" var="msg">
+                            <tr><td>#{msg.user.name} &#8226; <i>#{msg.pastTime}#{msgs.ago}</i><br/><a href="#{msg.link}" target="_blank"><strong>#{msg.title}</strong></a></td></tr>
+                        </ui:repeat>
+                    </tbody>
+                </table>
+            </div>
+        </h:form>
+    </ui:define>
+
+</ui:composition>

@@ -1,0 +1,19 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+                template="/fntemplate.xhtml">
+    <ui:define name="corpo">
+        <div class="container well" style="margin-top: 10px;">
+            <h:form class="form-signin" p:role="form">
+                <h:messages infoStyle="color: green" errorStyle="color: red"/>
+                <h4>#{msgs.lbEmail}</h4>
+                <h:inputText style="form-control" p:placeholder="#{msgs.phEmail}" p:required="true" p:autofocus="true" value="#{userBean.emailLogin}" requiredMessage="#{msgs.emptyEmail}"/>
+                <h4>#{msgs.lbPassword}</h4>
+                <h:inputSecret style="form-control" p:required="true" value="#{userBean.passwordLogin}" requiredMessage="#{msgs.emptyPassword}"/>
+                <br/>               
+                <h:commandLink class="btn btn-lg btn-primary btn-block" action="#{userBean.login}">#{msgs.btnLogon}</h:commandLink>
+            </h:form>
+        </div>
+    </ui:define>
+</ui:composition>

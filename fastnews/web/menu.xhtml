@@ -1,0 +1,18 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+
+    <h:form class="form-signin" p:role="form">
+        <div class="nav-collapse" style="margin-top: 10px;">
+            <ul class="nav">
+                <li class="active"><h:link outcome="index" rendered="#{userBean.loggedUser == null}">#{msgs.menuHome}</h:link></li>
+                <li class="active"><h:link outcome="news" rendered="#{userBean.loggedUser != null}">#{msgs.menuHome}</h:link></li>
+                <li><h:link outcome="login" rendered="#{userBean.loggedUser == null}">#{msgs.menuLogon}</h:link></li>
+                <li><h:link outcome="sendNews" rendered="#{userBean.loggedUser != null}">#{msgs.menuAddNews}</h:link></li>
+                <li><h:link outcome="myNews" rendered="#{userBean.loggedUser != null}">#{msgs.menuMyNews}</h:link></li>
+                <li><h:link outcome="about">#{msgs.menuAbout}</h:link></li>
+                <li><h:commandLink action="#{userBean.logout}" rendered="#{userBean.loggedUser != null}">#{msgs.menuLogoff}</h:commandLink></li>
+            </ul>
+        </div><!--/.nav-collapse -->
+    </h:form>
+</html>

@@ -1,0 +1,24 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+                template="/fntemplate.xhtml">
+    <ui:define name="corpo">
+        <div class="container well" style="margin-top: 10px;">
+            <h:form class="form-signin" p:role="form">
+                <h:messages errorStyle="color: red"/>
+                <h4>#{msgs.lbName}</h4>
+                <h:inputText style="form-control" p:required="true" p:autofocus="true" value="#{userBean.newUser.name}" requiredMessage="#{msgs.emptyName}"/>
+                <h4>#{msgs.lbEmail}</h4>
+                <h:inputText style="form-control" p:placeholder="#{msgs.phEmail}" p:required="true" value="#{userBean.newUser.email}" requiredMessage="#{msgs.emptyEmail}"/>
+                <h4>#{msgs.lbPassword}</h4>
+                <h:inputSecret style="form-control" p:required="true" value="#{userBean.newUser.password}" requiredMessage="#{msgs.emptyPassword}"/>
+                <h4>#{msgs.lbConfPassword}</h4>
+                <h:inputSecret style="form-control" p:required="true" value="#{userBean.verifyPassword}" requiredMessage="#{msgs.emptyConfPassword}"/>
+                <br/>
+                <h:commandLink class="btn btn-lg btn-primary btn-block" action="#{userBean.addUser}">#{msgs.btnSignup}</h:commandLink>
+            </h:form>
+        </div>
+    </ui:define>
+</ui:composition>
