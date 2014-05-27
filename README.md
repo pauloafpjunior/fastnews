@@ -10,7 +10,7 @@ Tecnologias utilizadas:
 + Bootstrap
 + AJAX
 
-A aplicação encontra-se disponível em: (http://fastnews-ufgjatai.rhcloud.com/) 
+A aplicação encontra-se disponível em: http://fastnews-ufgjatai.rhcloud.com/
 
 
 
