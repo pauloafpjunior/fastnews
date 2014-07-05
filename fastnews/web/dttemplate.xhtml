@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+        <h:head>
+            <meta charset="utf-8"/>
+            <title>FastNews</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+            <!-- Le styles -->
+            <link href="./assets/css/bootstrap.css" rel="stylesheet"/>
+            <style>
+                body {
+                    padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+                }
+            </style>
+            <link href="./assets/css/bootstrap-responsive.css" rel="stylesheet"/>
+
+            <!-- Le fav and touch icons -->
+            <link rel="shortcut icon" href="./assets/ico/favicon.ico"/>
+            
+        </h:head>
+        <h:body>
+            <div class="navbar navbar-fixed-top navbar-default">
+                <div class="navbar-inner">
+                    <div class="container">
+                        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </a>
+                        <a class="brand"><img style="max-width:40px;" src="./assets/img/logofn.png"/><i>FastNews</i></a>
+                        <ui:include src="/menu.xhtml"/>
+                    </div>
+                </div>
+            </div>
+            <ui:insert name="corpo"/>
+
+            <!-- Le javascript
+            ================================================== -->
+            <!-- Placed at the end of the document so the pages load faster -->
+            <script src="./assets/js/jquery.js"></script>
+            <script src="./assets/js/bootstrap-transition.js"></script>
+            <script src="./assets/js/bootstrap-alert.js"></script>
+            <script src="./assets/js/bootstrap-modal.js"></script>
+            <script src="./assets/js/bootstrap-dropdown.js"></script>
+            <script src="./assets/js/bootstrap-scrollspy.js"></script>
+            <script src="./assets/js/bootstrap-tab.js"></script>
+            <script src="./assets/js/bootstrap-tooltip.js"></script>
+            <script src="./assets/js/bootstrap-popover.js"></script>
+            <script src="./assets/js/bootstrap-button.js"></script>
+            <script src="./assets/js/bootstrap-collapse.js"></script>
+            <script src="./assets/js/bootstrap-carousel.js"></script>
+            <script src="./assets/js/bootstrap-typeahead.js"></script>
+            <link rel="stylesheet" href="./assets/css/jquery-ui.css" />
+            <script src="./assets/js/jquery-ui.js"></script>
+            <script>
+                $(function() {
+                    $( "#dateB" ).datepicker({
+                        showOn: "button",
+                        buttonImage: "./assets/img/calendar.png",
+                        buttonImageOnly: true,
+                        showButtonPanel: true,
+                        changeMonth: true,
+                        changeYear: true,
+                        minDate: "-120Y",
+                        maxDate: "-1Y",
+                        dateFormat: 'dd-mm-yy'
+                    });
+                });
+            </script>
+        </h:body>
+</html>
+

@@ -75,7 +75,7 @@ public class UserBean implements Serializable {
                     ipAddress = request.getRemoteAddr();
                 }
                 newUser.setIP(ipAddress);
-
+                
                 userDAO.save(newUser);
                 newUser = new User();
                 message = new FacesMessage(getMessage("addedUser"));
