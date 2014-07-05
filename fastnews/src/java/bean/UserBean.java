@@ -8,10 +8,6 @@ package bean;
 import dao.UserDAO;
 import dao.jpa.FactoryDAOJPA;
 import java.io.Serializable;
-import java.io.UnsupportedEncodingException;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.util.Formatter;
 import java.util.ResourceBundle;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -54,7 +50,6 @@ public class UserBean implements Serializable {
         FacesMessage message;
         loggedUser = userDAO.searchByEmail(emailLogin);
         if (loggedUser != null) {
-            passwordLogin = this.encryptPassword(passwordLogin);
             if (loggedUser.validate(passwordLogin)) {
                 return "news";
             } else {
@@ -74,7 +69,6 @@ public class UserBean implements Serializable {
         if (verifyPassword != null && verifyPassword.equals(newUser.getPassword())) {
             if (userDAO.searchByEmail(newUser.getEmail()) == null) {
 
-                newUser.setPassword( this.encryptPassword(newUser.getPassword()) );
                 HttpServletRequest request = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
                 String ipAddress = request.getHeader("X-FORWARDED-FOR");
                 if (ipAddress == null) {
@@ -137,35 +131,5 @@ public class UserBean implements Serializable {
 
     public void setVerifyPassword(String verifyPassword) {
         this.verifyPassword = verifyPassword;
-    }
-    
-     public String encryptPassword(String password) {
-        String sha1 = "";
-        try
-        {
-            MessageDigest crypt = MessageDigest.getInstance("SHA-1");
-            crypt.reset();
-            crypt.update(password.getBytes("UTF-8"));
-            sha1 = byteToHex(crypt.digest());
-        }
-        catch(NoSuchAlgorithmException e)
-        {
-        }
-        catch(UnsupportedEncodingException e)
-        {
-            e.printStackTrace();
-        }
-        return sha1;
-    }
-
-    private static String byteToHex(final byte[] hash){
-        Formatter formatter = new Formatter();
-        for (byte b : hash)
-        {
-            formatter.format("%02x", b);
-        }
-        String result = formatter.toString();
-        formatter.close();
-        return result;
     }
 }
