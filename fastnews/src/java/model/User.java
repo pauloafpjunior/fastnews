@@ -14,6 +14,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
 import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import static javax.persistence.TemporalType.DATE;
 
 /**
@@ -30,7 +31,7 @@ public class User implements Serializable {
     private Long id;
     private String email;
     private String name;
-    @Temporal(DATE)
+    @Temporal(TemporalType.DATE)
     private Date dateB;
     private String password;
     private int status;
@@ -87,11 +88,11 @@ public class User implements Serializable {
         this.status = status;
     }
 
-    public Date getDate() {
+    public Date getDateB() {
         return dateB;
     }
 
-    public void setDate(Date date) {
+    public void setDateB(Date date) {
         this.dateB = date;
     }
     
