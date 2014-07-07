@@ -7,11 +7,15 @@
 package model;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.Objects;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import static javax.persistence.TemporalType.DATE;
 
 /**
  *
@@ -27,6 +31,8 @@ public class User implements Serializable {
     private Long id;
     private String email;
     private String name;
+    @Temporal(TemporalType.DATE)
+    private Date dateB;
     private String password;
     private int status;
     private String IP;
@@ -80,6 +86,14 @@ public class User implements Serializable {
 
     public void setStatus(int status) {
         this.status = status;
+    }
+
+    public Date getDateB() {
+        return dateB;
+    }
+
+    public void setDateB(Date date) {
+        this.dateB = date;
     }
     
     @Override

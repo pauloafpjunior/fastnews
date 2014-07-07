@@ -3,13 +3,17 @@
                 xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:f="http://java.sun.com/jsf/core"
                 xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
-                template="/fntemplate.xhtml">
+                template="/dttemplate.xhtml">
     <ui:define name="corpo">
         <div class="container well" style="margin-top: 10px;">
-            <h:form class="form-signin" p:role="form">
+            <h:form id="cad" class="form-signin" p:role="form">
                 <h:messages errorStyle="color: red"/>
                 <h4>#{msgs.lbName}</h4>
                 <h:inputText style="form-control" p:required="true" p:autofocus="true" value="#{userBean.newUser.name}" requiredMessage="#{msgs.emptyName}"/>
+                <h4>#{msgs.lbDate}</h4>
+                <h:inputText  id="dateB" style="form-control" p:required="true"  value="#{userBean.newUser.dateB}" requiredMessage="#{msgs.emptyDate}">
+                    <f:convertDateTime pattern="dd/MM/yyyy"/>
+                 </h:inputText>
                 <h4>#{msgs.lbEmail}</h4>
                 <h:inputText style="form-control" p:placeholder="#{msgs.phEmail}" p:required="true" value="#{userBean.newUser.email}" requiredMessage="#{msgs.emptyEmail}"/>
                 <h4>#{msgs.lbPassword}</h4>
